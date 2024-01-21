@@ -7,12 +7,14 @@ import { Home } from './pages/Home.jsx'
 import { ProtectedRoutes } from './ProtectedRoutes.jsx'
 import { TaskProvider } from './context/TaskContext.jsx'
 import { AuthProvider } from './context/AuthContext.jsx'
+import { Navbar } from './components/Navbar.jsx'
 
 export function App () {
   return (
     <AuthProvider>
       <TaskProvider>
         <BrowserRouter>
+          <Navbar />
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />

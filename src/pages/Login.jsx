@@ -18,6 +18,12 @@ export function Login () {
     signin(values)
   })
 
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/tasks')
+    }
+  }, [isAuthenticated])
+
   return (
     <div>
       {

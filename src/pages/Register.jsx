@@ -25,6 +25,7 @@ export function Register () {
           <span key={index}>{error}</span>
         ))
       }
+      <h1>Register</h1>
       <form onSubmit={onSubmit}>
         <input
           type='text' {
