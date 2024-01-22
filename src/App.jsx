@@ -22,6 +22,7 @@ export function App () {
             <Route element={<ProtectedRoutes />}>
               <Route path='/tasks' element={<Tasks />} />
               <Route path='/tasks/add-task' element={<TaskForm />} />
+              <Route path='/tasks/update-task/:id' element={<TaskForm />} />
             </Route>
           </Routes>
         </BrowserRouter>

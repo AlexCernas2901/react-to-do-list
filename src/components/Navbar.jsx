@@ -6,7 +6,9 @@ export function Navbar () {
 
   return (
     <nav>
-      <h1>Task Manager</h1>
+      <Link to={isAuthenticated ? '/task' : '/'}>
+        <h1>Task Manager</h1>
+      </Link>
       <ul>
         {isAuthenticated
           ? (
