@@ -1,0 +1,49 @@
+.tasks-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+
+.tasks-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: #dacaf9 0px 0px 10px 0px;
+  width: 300px;
+  border-radius: 10px;
+}
+
+.button-div {
+  margin-bottom: 20px;
+}
+
+.txt-area {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #c8b3f3;
+  border-radius: 5px;
+  resize: vertical;
+}
+
+.txt-area:focus {
+  outline-color: #6e40c9;
+}
+
+form div:first-child {
+  margin-top: 50px;
+}
+
+form div:last-child {
+  margin-top: 50px;
+}
+
+form div:nth-child(2) {
+  height: 100px;
+}
+
+textarea {
+  margin-bottom: 2px;
+}

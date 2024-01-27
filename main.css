@@ -1,6 +1,96 @@
 body {
-  background-color: #333333;
-  color: #ece7e7;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #fbfafa;
+  color: #211f1f;
+  font-family: cascadia code;
   font-size: 14px;
+  margin: 0;
+}
+
+.register-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+
+.login-link {
+  margin-left: auto;
+  margin-right: 20px;
+  color: #211f1f;
+  text-decoration: none;
+  font-size: 14px;
+  color: #6e40c9;
+}
+
+.register-link {
+  display: inline-block; 
+  padding: 7px 20px;
+  text-decoration: none;
+  background-color: #6e40c9;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  font-size: px;
+}
+
+.register-link:hover {
+  background-color: #531bb3;
+}
+
+.form-tittle {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: #dacaf9 0px 0px 10px 0px;
+  width: 300px;
+  border-radius: 10px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  height: 70px;
+}
+
+.input-group input {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #c8b3f3;
+  width: 100%;
+}
+
+.input-group label {
+  padding-bottom: 5px;
+  margin-top: 10px;
+}
+
+.p-account-state {
+  font-size: 14px;
+  margin-top: 40px;
+}
+
+.auth-form div:nth-last-child(2) { 
+  height: 50px;
+}
+
+.auth-form div:last-child {
+  margin-bottom: 30px;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+.input-form:focus {
+  outline-color: #6e40c9;
 }

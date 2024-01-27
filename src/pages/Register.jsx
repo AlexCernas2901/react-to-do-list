@@ -19,36 +19,60 @@ export function Register () {
   })
 
   return (
-    <div>
-      {
-        authErrors.map((error, index) => (
-          <span key={index}>{error}</span>
-        ))
-      }
-      <h1>Register</h1>
-      <form onSubmit={onSubmit}>
-        <input
-          type='text' {
-          ...register('username', { required: true })
-        }
-        />
-        {errors.username && <span>Username is required</span>}
-        <input
-          type='email' {
-          ...register('email', { required: true })
-        }
-        />
-        {errors.username && <span>Username is required</span>}
-        <input
-          type='password' {
-          ...register('password', { required: true })
-        }
-        />
-        {errors.username && <span>Username is required</span>}
-        <button type='submit'>Register</button>
+    <div className='register-container'>
+      <form className='auth-form' onSubmit={onSubmit}>
+        <h1 className='form-tittle'>Registrate</h1>
+
+        <div className='input-group'>
+          <label htmlFor='username'>Usuario:</label>
+          <input
+            className='input-form'
+            placeholder='Noobmaster69'
+            id='username'
+            type='text'
+            {...register('username', { required: true })}
+          />
+          {errors.username && <span className='error-message'>Usuario requerido</span>}
+        </div>
+
+        <div className='input-group'>
+          <label htmlFor='email'>Correo:</label>
+          <input
+            className='input-form'
+            placeholder='example@example'
+            id='email'
+            type='email'
+            {...register('email', { required: true })}
+          />
+          {errors.email && <span className='error-message'>Correo requerido</span>}
+        </div>
+
+        <div className='input-group'>
+          <label htmlFor='password'>Contraseña:</label>
+          <input
+            className='input-form'
+            placeholder='*********'
+            id='password'
+            type='password'
+            {...register('password', { required: true })}
+          />
+          {errors.password && <span className='error-message'>Contraseña requerida</span>}
+        </div>
+
+        <div className='input-group'>
+          {
+            authErrors.map((error, index) => (
+              <span className='error-message' key={index}>{error}</span>
+            ))
+          }
+        </div>
+
+        <div>
+          <button className='register-link' type='submit'>Registrarse</button>
+        </div>
       </form>
-      <p>
-        Already have an account? <Link to='/login'>Login</Link>
+      <p className='p-account-state'>
+        Ya tienes una cuenta? <Link className='login-link' to='/login'>Inicia sesión</Link>
       </p>
     </div>
   )

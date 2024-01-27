@@ -1,6 +1,7 @@
 import { useTasks } from '../context/TaskContext.jsx'
 import { useEffect } from 'react'
 import { TaskCard } from '../components/TaskCard.jsx'
+import '../styles/Tasks.css'
 
 export function Tasks () {
   const { getTasks, tasks } = useTasks()
@@ -9,10 +10,10 @@ export function Tasks () {
     getTasks()
   }, [])
 
-  if (tasks.length === 0) return (<h3>No hay tareas</h3>)
+  if (tasks.length === 0) return (<h3 className='no-tasks'>No hay tareas</h3>)
 
   return (
-    <div>
+    <div className='tasks-container'>
       {
       tasks.map((task) => (
         <TaskCard task={task} key={task._id} />

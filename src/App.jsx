@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { Register } from './pages/register.jsx'
+import { Register } from './pages/Register.jsx'
 import { Login } from './pages/Login.jsx'
 import { Tasks } from './pages/Tasks.jsx'
 import { TaskForm } from './pages/TaskForm.jsx'
@@ -21,6 +21,7 @@ export function App () {
             <Route path='/register' element={<Register />} />
             <Route element={<ProtectedRoutes />}>
               <Route path='/tasks' element={<Tasks />} />
+              <Route path='/tasks/get-tasks' element={<TaskForm />} />
               <Route path='/tasks/add-task' element={<TaskForm />} />
               <Route path='/tasks/update-task/:id' element={<TaskForm />} />
             </Route>

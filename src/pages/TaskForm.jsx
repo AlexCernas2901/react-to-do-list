@@ -2,10 +2,11 @@ import { useForm } from 'react-hook-form'
 import { useTasks } from '../context/TaskContext.jsx'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect } from 'react'
+import '../styles/TaskForm.css'
 
 export function TaskForm () {
-  const { register, handleSubmit, setValue } = useForm()
-  const { createTask, getTask, updateTask } = useTasks()
+  const { register, handleSubmit, setValue, formState: { errors } } = useForm()
+  const { createTask, getTask, getTasks, updateTask } = useTasks()
   const navigate = useNavigate()
   const params = useParams()
 
@@ -18,7 +19,7 @@ export function TaskForm () {
       }
     }
     loadTask()
-  }, [])
+  }, [params.id])
 
   const onSubmit = handleSubmit((values) => {
     if (params.id) { // Actualizando tarea
@@ -28,22 +29,41 @@ export function TaskForm () {
     }
 
     navigate('/tasks')
+    getTasks()
   })
 
   return (
-    <div>
-      <form onSubmit={onSubmit}>
-        <input
-          type='text'
-          placeholder='Tittle'
-          {...register('tittle')}
-        />
-        <textarea
-          rows='3'
-          placeholder='Description'
-          {...register('description')}
-        />
-        <button>Save</button>
+    <div className='tasks-form-container'>
+      <form className='tasks-form' onSubmit={onSubmit}>
+        <div className='input-group'>
+          <label htmlFor='tittle'>Titulo:</label>
+          <input
+            id='tittle'
+            className='input-form'
+            type='text'
+            maxLength={30}
+            placeholder='Tarea'
+            {...register('tittle', { required: true })}
+          />
+          {errors.tittle && <span className='error-message'>Titulo requerido</span>}
+        </div>
+
+        <div className='input-group'>
+          <label htmlFor='description'>Descripcion:</label>
+          <textarea
+            id='description'
+            className='txt-area'
+            rows='3'
+            maxLength={50}
+            placeholder='Descripcion'
+            {...register('description', { required: true })}
+          />
+          {errors.description && <span className='error-message'>Descripcion requerida</span>}
+        </div>
+
+        <div className='button-div'>
+          <button className='register-link'>Save</button>
+        </div>
       </form>
     </div>
   )

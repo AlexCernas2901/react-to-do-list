@@ -1,0 +1,15 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+
+.p-home {
+  font-size: 20px;
+}
+
+h1 {
+  font-size: 40px;
+}

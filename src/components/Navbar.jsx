@@ -1,43 +1,44 @@
 import { Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import '../styles/Navbar.css'
 
 export function Navbar () {
   const { isAuthenticated, logout, user } = useAuth()
 
   return (
-    <nav>
-      <Link to={isAuthenticated ? '/task' : '/'}>
-        <h1>Task Manager</h1>
-      </Link>
-      <ul>
-        {isAuthenticated
-          ? (
-            <>
-              <li>
-                <span>Welcome, {user.username}!</span>
-              </li>
-              <li>
-                <Link to='/tasks'>Tasks</Link>
-              </li>
-              <li>
-                <Link to='/tasks/add-task'>Add Task</Link>
-              </li>
-              <li>
-                <button onClick={logout}>Logout</button>
-              </li>
-            </>
-            )
-          : (
-            <>
-              <li>
-                <Link to='/login'>Login</Link>
-              </li>
-              <li>
-                <Link to='/register'>Register</Link>
-              </li>
-            </>
-            )}
-      </ul>
+    <nav className='navbar'>
+      <div className='nav-container'>
+        <Link className='tittle-link' to={isAuthenticated ? '/tasks' : '/'}>
+          Lista de deberes
+        </Link>
+        {
+          isAuthenticated
+            ? (
+              <>
+                <span className='welcome-user'>Bienvenido, {user.username}!</span>
+                <Link to='/tasks' className='nav-link'>
+                  Tareas
+                </Link>
+                <Link to='/tasks/add-task' className='nav-create-task'>
+                  Crear tarea
+                </Link>
+                <button onClick={logout} className='logout-button'>
+                  Cerrar sesión
+                </button>
+              </>
+              )
+            : (
+              <>
+                <Link className='login-link' to='/login'>
+                  Iniciar sesión
+                </Link>
+                <Link className='register-link' to='/register'>
+                  Registrarse
+                </Link>
+              </>
+              )
+        }
+      </div>
     </nav>
   )
 }

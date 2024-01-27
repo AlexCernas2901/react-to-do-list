@@ -25,31 +25,50 @@ export function Login () {
   }, [isAuthenticated])
 
   return (
-    <div>
-      {
-        authErrors.map((error, index) => (
-          <span key={index}>{error}</span>
-        ))
-      }
-      <h1>Login</h1>
-      <form onSubmit={onSubmit}>
-        {errors.username && <span>Username is required</span>}
-        <input
-          type='email' {
-          ...register('email', { required: true })
-        }
-        />
-        {errors.username && <span>Username is required</span>}
-        <input
-          type='password' {
-          ...register('password', { required: true })
-        }
-        />
-        {errors.username && <span>Username is required</span>}
-        <button type='submit'>Login</button>
+    <div className='register-container'>
+      <form className='auth-form' onSubmit={onSubmit}>
+        <h1 className='form-tittle'>Login</h1>
+
+        <div className='input-group'>
+          <label htmlFor='email'>Correo:</label>
+          <input
+            className='input-form'
+            placeholder='example@example'
+            id='email'
+            type='email' {
+            ...register('email', { required: true })
+            }
+          />
+          {errors.email && <span className='error-message'>Correo requerido</span>}
+        </div>
+
+        <div className='input-group'>
+          <label htmlFor='password'>Contraseña:</label>
+          <input
+            className='input-form'
+            placeholder='*********'
+            id='password'
+            type='password' {
+            ...register('password', { required: true })
+            }
+          />
+          {errors.password && <span className='error-message'>Contraseña requerida</span>}
+        </div>
+
+        <div className='input-group'>
+          {
+            authErrors.map((error, index) => (
+              <span className='error-message' key={index}>{error}</span>
+            ))
+          }
+        </div>
+
+        <div>
+          <button className='register-link' type='submit'>Login</button>
+        </div>
       </form>
-      <p>
-        Don't have an account? <Link to='/register'>Register</Link>
+      <p className='p-account-state'>
+        Aunt no tienes una cuenta? <Link className='login-link' to='/register'>Register</Link>
       </p>
     </div>
   )
